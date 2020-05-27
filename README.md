@@ -1,6 +1,14 @@
 # mysql
 MySql Library
 
+<br>
+
+### Install
+```
+composer require webrium/mysql
+```
+
+<br>
 
 ```PHP
 <?php
