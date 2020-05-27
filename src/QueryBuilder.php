@@ -111,7 +111,7 @@ class QueryBuilder
   {
     $arr=$this->arr;
     ksort($arr);
-
+    $str='';
     foreach ($arr as $key => $value) {
       $str.=$value;
       if (isset($this->arr_values[$key])) {
@@ -133,28 +133,28 @@ class QueryBuilder
 
     if ($select) {
       $index=$this->SelectSyntaxIndex('SELECT');
-      if ($this->arr[$index]==null) {
+      if (! isset($this->arr[$index])) {
         $this->arr[$index]="SELECT ";
       }
     }
 
     if ($all) {
       $index_all=$this->SelectSyntaxIndex('ALL');
-      if ($this->arr[$index_all] ==null) {
+      if (! isset($this->arr[$index_all])) {
         $this->arr[$index_all]=" * ";
       }
     }
 
     if ($from) {
       $index_from=$this->SelectSyntaxIndex('FROM');
-      if ($this->arr[$index_from] ==null) {
+      if (! isset($this->arr[$index_from]) ) {
         $this->arr[$index_from]=" FROM ".$this->getTableName().' ';
       }
     }
 
     if ($where) {
       $index_where=$this->SelectSyntaxIndex('WHERE');
-      if ($this->arr[$index_where] ==null) {
+      if ( ! isset($this->arr[$index_where]) ) {
         $this->arr[$index_where]=" WHERE ";
       }
     }
@@ -341,7 +341,7 @@ class QueryBuilder
     $this->selectInit(false,false,false,true);
     $index=$this->SelectSyntaxIndex('WHERE_STR');
 
-    if ($this->arr[$index]!=null && $this->first_fl_able) {
+    if (isset($this->arr[$index]) && $this->first_fl_able) {
       $this->arr[$index].=" $fl ";
     }
     else if(! $this->first_fl_able) {
