@@ -350,7 +350,10 @@ class QueryBuilder
       $this->first_fl_able=true;
       $this->arr[$index]=str_replace('@fl',$fl ,$this->arr[$index]);
     }
-
+    else {
+      // init default value
+      $this->arr[$index]='';
+    }
 
     $this->arr[$index].=$query;
   }
