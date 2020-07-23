@@ -103,7 +103,7 @@ class DB
     DB::mainDB()->commit();
   }
 
-  public function rollback()
+  public static function rollback()
   {
     DB::mainDB()->rollback();
   }
